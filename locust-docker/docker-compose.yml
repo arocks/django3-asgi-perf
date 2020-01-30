@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  locust-standalone:
+    build: .
+    environment:
+      LOCUST_MODE: standalone
+      TARGET_URL: http://localhost:8089
+      LOCUSTFILE_PATH: /tests/polls.py
+    volumes:
+      - ./tests:/tests
+    ports:
+      - 8089:8089
+    network_mode: host

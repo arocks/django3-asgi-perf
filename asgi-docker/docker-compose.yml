@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+
+  djangoapp:
+    build: ./djangoapp
+    restart: always
+    env_file: ./config/django/.env
+    environment:
+      DEBUG: 'true'
+    volumes:
+      - .:/opt/services/djangoapp/src
+      - static_volume:/opt/services/djangoapp/static
+      - media_volume:/opt/services/djangoapp/media
+    networks:
+      - nginx_network
+      - postgres_network
+    depends_on:
+      - postgres
+    command: /usr/local/bin/gunicorn mysite.asgi:application --workers 2 --bind :8000  --worker-class uvicorn.workers.UvicornWorker
+    expose:
+      - 8000
+
+  nginx:
+    image: nginx:1.13
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/opt/services/djangoapp/static
+      - media_volume:/opt/services/djangoapp/media
+    depends_on:
+      - djangoapp
+    networks:
+      - nginx_network
+
+  postgres:
+    image: postgres:10.11
+    restart: always
+    ports:
+      - 5432:5432
+    env_file: config/postgres/.env
+    networks:
+      - postgres_network
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+
+networks:
+  nginx_network:
+    driver: bridge
+  postgres_network:
+    driver: bridge
+
+volumes:
+  postgres_volume:
+  static_volume:
+  media_volume:
