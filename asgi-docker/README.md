@@ -40,8 +40,8 @@ docker-compose run djangoapp python manage.py createsuperuser
 If running in the project directory `wsgi-docker` then it is usually:
 
 ``` bash
-docker logs wsgi-docker_nginx_1
-docker logs wsgi-docker_djangoapp_1
+docker-compose logs nginx
+docker-compose logs djangoapp
 ```
 
 ## Cleanup
