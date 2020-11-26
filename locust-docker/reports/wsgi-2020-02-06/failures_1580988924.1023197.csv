@@ -1,0 +1,10 @@
+"Method","Name","Error","Occurrences"
+"POST","/polls/1/vote/","502 Server Error: Bad Gateway for url: http://localhost/polls/1/results/",136
+"POST","/polls/1/vote/","504 Server Error: Gateway Time-out for url: http://localhost/polls/1/results/",3
+"GET","Open first poll form","500 Server Error: Internal Server Error for url: Open first poll form",1
+"GET","Open first poll form","('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",4375
+"POST","/polls/1/vote/","502 Server Error: Bad Gateway for url: http://localhost/polls/1/vote/",206
+"GET","Open first poll form","504 Server Error: Gateway Time-out for url: Open first poll form",60
+"GET","Open first poll form","502 Server Error: Bad Gateway for url: Open first poll form",1061
+"POST","/polls/1/vote/","('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",674
+"POST","/polls/1/vote/","504 Server Error: Gateway Time-out for url: http://localhost/polls/1/vote/",9

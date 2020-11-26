@@ -1,0 +1,14 @@
+Count,Message,Traceback,Nodes
+5497,"""name='csrftoken', domain=None, path=None""","  File ""/usr/local/lib/python3.8/site-packages/locust/core.py"", line 394, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.8/site-packages/locust/core.py"", line 424, in execute_next_task
+    self.execute_task(task[""callable""], *task[""args""], **task[""kwargs""])
+  File ""/usr/local/lib/python3.8/site-packages/locust/core.py"", line 436, in execute_task
+    task(self, *args, **kwargs)
+  File ""/tests/polls.py"", line 10, in vote_random
+    csrftoken = response.cookies[""csrftoken""]
+  File ""/usr/local/lib/python3.8/site-packages/requests/cookies.py"", line 328, in __getitem__
+    return self._find_no_duplicates(name)
+  File ""/usr/local/lib/python3.8/site-packages/requests/cookies.py"", line 399, in _find_no_duplicates
+    raise KeyError('name=%r, domain=%r, path=%r' % (name, domain, path))
+",local

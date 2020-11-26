@@ -1,0 +1,3 @@
+"Method","Name","Error","Occurrences"
+"GET","Open first poll form","('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",2366
+"POST","/polls/1/vote/","('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",553
